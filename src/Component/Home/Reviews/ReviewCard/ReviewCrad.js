@@ -2,7 +2,7 @@
 import { Box, Typography } from '@material-ui/core';
 import { Rating } from '@material-ui/lab';
 import React from 'react';
-import StarRatingComponent from 'react-star-rating-component';
+
 
 // import Rating from '@material-ui/lab/Rating';
 // import Typography from '@material-ui/core/Typography';
