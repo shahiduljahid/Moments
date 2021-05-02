@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,400;1,500&display=swap");
+
+.contact-container {
+  height: 700px;
+  background-image: url(../../../photo/group3.jpg);
+  background-size: cover;
+  background-position:fixed;
+  width: 100%;
+}
+
+.contactInfo h1 {
+  font-size: 60px;
+  font-family: "Roboto", sans-serif;
+}
+.contactInfo h4 {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+@media (max-width: 991px) {
+  .contact-container {
+    height: 700px;
+  }
+}
+@media (max-width: 767px) {
+  .contact-container {
+    height: 500px;
+  }
+  .contactInfo h1 {
+    font-size: 50px;
+  }
+  .contactInfo h4 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 575px) {
+  .contact-container {
+    height: 400px;
+  }
+  .contactInfo h1 {
+    font-size: 30px;
+  }
+  .contactInfo h4 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 350px) {
+  .contact-container {
+    height: 300px;
+  }
+}
