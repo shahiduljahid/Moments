@@ -1,0 +1,74 @@
+
+button img {
+  width: 20px;
+
+  padding-right: 2px;
+  margin-right: 5px;
+}
+.signIn-form {
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.button {
+  font-size: 20px;
+  font-weight: 600;
+
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+
+
+@media (max-width: 992px) {
+  .button {
+    font-size: 8px;
+  }
+}
+@media (max-width: 767px) {
+  .button {
+    font-size: 12px;
+  }
+  .loginForm {
+
+  
+    height: 500px;
+    position: relative;
+  
+  }
+  .loginForm::after{
+   
+   
+
+    height: 500px;
+    content: " ";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -20;
+    opacity: 0.3;
+  
+  
+    right: 0;
+    background-color:#F4FDFB;
+  }
+.loginimage {
+  display: none;
+  
+}
+}
+@media (max-width: 575px) {
+
+  .loginForm::after{
+  
+    width: 100%;
+    right:5%;
+   
+  }
+}
+@media (max-width: 250px) {
+  .button {
+    font-size: 8 px;
+  }
+}

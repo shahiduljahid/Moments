@@ -13,7 +13,7 @@ const Home = () => {
 
             <Protfolio></Protfolio>
 
-            <Services></Services>
+            <Services showbtn={false}></Services>
             <Reviews></Reviews>
             <Contact></Contact>
             <Footer></Footer>
