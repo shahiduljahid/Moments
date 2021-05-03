@@ -35,7 +35,7 @@ const ServiceForm = ({ modalIsOpen, closeModal, name }) => {
     };
     console.log(data);
 
-    const url = `http://localhost:4000/addappointment`;
+    const url = `https://fierce-stream-67522.herokuapp.com/addappointment`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
