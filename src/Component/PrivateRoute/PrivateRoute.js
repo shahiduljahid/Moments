@@ -6,7 +6,7 @@ const PrivateRoute = ({ children, ...rest }) => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
   const user =  sessionStorage.getItem("token");
-  console.log(user);
+
   return (
     <Route
       {...rest}

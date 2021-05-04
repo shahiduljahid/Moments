@@ -1,0 +1,13 @@
+.sidebar{
+
+    background-image: linear-gradient(tomato,crimson);
+    background-image: radial-gradient();
+    height: 700px;
+
+}
+@media (max-width:767px) {
+    .sidebar{
+        height: 400px;
+    }
+    
+}
