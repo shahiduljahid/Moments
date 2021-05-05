@@ -18,7 +18,7 @@ const OrderListMain = ({ orderList }) => {
   const handleChange =(id,e)=>{
    
 
-     fetch('http://localhost:4000/updateStatus',{
+     fetch('https://fierce-stream-67522.herokuapp.com/updateStatus',{
          method:'PATCH',
          headers: { "Content-Type": "application/json" },
          body: JSON.stringify({bookingId : id , status : e.target.value})

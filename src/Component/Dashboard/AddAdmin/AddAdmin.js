@@ -12,7 +12,7 @@ const AddAdmin = () => {
   } = useForm();
   const onSubmit = (data) => {
 
-    const url = `http://localhost:4000/addAdmin`;
+    const url = `https://fierce-stream-67522.herokuapp.com/addAdmin`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

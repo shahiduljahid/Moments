@@ -15,7 +15,7 @@ const Sidebar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [loggedInUser] = useContext(userContext);
 
-  fetch("http://localhost:4000/admin", {
+  fetch("https://fierce-stream-67522.herokuapp.com/admin", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ admin: loggedInUser.email }),
