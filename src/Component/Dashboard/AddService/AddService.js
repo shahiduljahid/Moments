@@ -53,7 +53,7 @@ const AddService = () => {
       const serviceData = { ...data, img: imageUrl };
       console.log(serviceData)
 
-      const url = `http://localhost:4000/addService`;
+      const url = `https://fierce-stream-67522.herokuapp.com/addService`;
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

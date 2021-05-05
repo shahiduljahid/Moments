@@ -1,33 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReviewCrad from '../ReviewCard/ReviewCrad';
 
 const Reviews = () => {
-    const reviews = [
-        {
-         
-           companyName:'R&D Gallary',
-           name:'Winson harry',
-           Designation:'CEO',
-           description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, excepturi',
-           rating:4
-    
-        },
-        {
-            companyName:'Beauty Fixer',
-           name:'Alexia',
-           Designation:'CEO',
-           description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, excepturi'
-          , rating:4.2
-          },
-          {
-            companyName:'Times of india',
-           name:'Walter White',
-           Designation:'Senior Photographer',
-           description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, excepturi',
-           rating:5
-          }
-      ];
 
+    const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    fetch("https://fierce-stream-67522.herokuapp.com/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
+   
 
     return (
         <div className="container">

@@ -11,7 +11,7 @@ const BookingList = () => {
     console.log(getUser)
 
     useEffect(()=>{
-        fetch('http://localhost:4000/userService',
+        fetch('https://fierce-stream-67522.herokuapp.com/userService',
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },

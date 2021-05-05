@@ -2,7 +2,6 @@ import React from "react";
 import "./OrderListMain.css";
 
 const OrderListMain = ({ orderList }) => {
-    
   const handleDate = (date) => {
     const newDate = new Date(date).getDate();
     const newMonth = new Date(date).getMonth();
@@ -14,26 +13,19 @@ const OrderListMain = ({ orderList }) => {
     const fullDate = `${dateLength}-${newMonth}-${newYear}`;
     return fullDate;
   };
- 
-  const handleChange =(id,e)=>{
-   
 
-     fetch('https://fierce-stream-67522.herokuapp.com/updateStatus',{
-         method:'PATCH',
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify({bookingId : id , status : e.target.value})
-     })
-     .then(res => res.json())
-     .then(data=>{
-         if(data){}
-       
-     })
-
-    
-     
-    
-
-  }
+  const handleChange = (id, e) => {
+    fetch("https://fierce-stream-67522.herokuapp.com/updateStatus", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ bookingId: id, status: e.target.value }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+        }
+      });
+  };
   return (
     <div className="row">
       <div className="px-5">
@@ -96,7 +88,11 @@ const OrderListMain = ({ orderList }) => {
                     {apm.booking.phoneNumber}
                   </td>
                   <td className="text-weight-bold">
-                    <form  onChange={(e)=>handleChange(apm._id,e)} action="" className="form-control border-0 p-0">
+                    <form
+                      onChange={(e) => handleChange(apm._id, e)}
+                      action=""
+                      className="form-control border-0 p-0"
+                    >
                       <div class="form-group">
                         <select
                           className=" mb-3 text-bold  text-light btn btn-color  boder-bottom"
@@ -104,18 +100,20 @@ const OrderListMain = ({ orderList }) => {
                         >
                           {apm.status && (
                             <option className=" text-bold bg-success ">
-                              Done
+                              {apm.status}
                             </option>
                           )}
-                          <option className=" text-bold bg-danger  ">
-                            pending
-                          </option>
-                          {!apm.status && (
+                          {(apm.status === "Done" || !apm.status) && (
+                            <option className=" text-bold bg-danger  ">
+                              pending
+                            </option>
+                          )}
+
+                          {(apm.status === "pending" || !apm.status) && (
                             <option className=" text-bold bg-success ">
                               Done
                             </option>
                           )}
-                          
                         </select>
                       </div>
                     </form>

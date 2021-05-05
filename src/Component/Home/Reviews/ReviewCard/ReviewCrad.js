@@ -13,11 +13,11 @@ const ReviewCrad = ({review}) => {
     return (
         <div className="col-md-3 text-center mx-2 mb-3 rounded shadow p-3">
 
-            <h3 >{review.name}</h3>
-            <h6 className="text-color">{review.companyName},{review.Designation}</h6>
-            <p>{review.description}</p>
+            <h3 style={{textTransform:'capitalize'}}>{review.name}</h3>
+            <h6 style={{textTransform:'capitalize'}} className="text-color">{review.companyName},<span style={{textTransform:'uppercase'}}>{review.Designation}</span></h6>
+            <p >{review.description}</p>
             <Box component="fieldset" mb={3} borderColor="transparent">
-        <Typography component="legend">Read only</Typography>
+       
         <Rating name="read-only" value={review.rating} readOnly />
       </Box>
     

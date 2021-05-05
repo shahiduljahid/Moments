@@ -1,48 +1,101 @@
-import React from 'react';
-import './AddReview.css';
+import React from "react";
+import "./AddReview.css";
 import Sidebar from "../Sidebar/Sidebar";
 
 import { useForm } from "react-hook-form";
 
 const AddReview = () => {
-    const {
-        register,
-        handleSubmit,
-        
-        formState: { errors },
-      } = useForm();
-      const onSubmit = (data) => {console.log(data)}
-    return (
-        <div className="row">
-        <div className="col-md-3 col-xl-2">
-          <Sidebar></Sidebar>
-        </div>
-        <div className="col-md-8">
-          <div>
-            <h4 className="text-color ms-3  mb-2 mt-3">Add Admin</h4>
-            <form
-              className="shadow form-control border-0 pt-4 pb-5 px-2 "
-              onSubmit={handleSubmit(onSubmit)}
-            >
+  const {
+    register,
+    handleSubmit,
+
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+
+    const url = `https://fierce-stream-67522.herokuapp.com/addReview`;
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log(res);
+      if (res) {
+      }
+      alert("success");
+    });
+  };
+  const handleFocus = (e) => {
+    e.target.value = "";
+  };
+  return (
+    <div className="row">
+      <div className="col-md-3 col-xl-2">
+        <Sidebar></Sidebar>
+      </div>
+      <div className="col-md-5">
+        <div>
+          <h4 className="text-color ms-3  mb-2 mt-3">Add Review</h4>
+          <form
+            className="shadow form-control border-0 pt-4 pb-5 px-2 "
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              onFocus={handleFocus}
+              type="text"
+              placeholder="Your Name"
+              className="form-control mb-3"
+              {...register("name", { required: true })}
+            />
+            {errors.name && <span>This field is required</span>}
+            <input
+              onFocus={handleFocus}
+              type="text"
+              placeholder="Your company Name"
+              className="form-control mb-3"
+              {...register("companyName", { required: true })}
+            />
+            {errors.CompanyName && <span>This field is required</span>}
+            <input
+              onFocus={handleFocus}
+              type="text"
+              placeholder="Your designation"
+              className="form-control mb-3"
+              {...register("Designation", { required: true })}
+            />
+
+            {errors.Designation && <span>This field is required</span>}
+
+            <textarea
+              onFocus={handleFocus}
+              className="form-control mb-3"
+              rows="5"
+              placeholder="description"
+              {...register("description", { required: true })}
+            ></textarea>
+            {errors.description && <span>This field is required</span>}
+            <div className="col-md-3">
               <input
-                type="email"
-                placeholder="Make admin with email"
+                onFocus={handleFocus}
+                type="number"
+                placeholder="Give Rating"
                 className="form-control mb-3"
-                {...register("admin", { required: true })}
+                {...register("rating", { required: true })}
               />
-  
-              {errors.exampleRequired && <span>This field is required</span>}
-  
-              <input
-                value="ADD"
-                className=" btn btn-color text-light text-bold"
-                type="submit"
-              />
-            </form>
-          </div>
+            </div>
+            {errors.rating && <span>This field is required</span>}
+
+            <input
+              value="ADD"
+              className=" btn btn-color text-light text-bold"
+              type="submit"
+            />
+          </form>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default AddReview;
