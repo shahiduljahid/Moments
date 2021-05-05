@@ -1,0 +1,17 @@
+
+ .bootstrap-select.btn-group .dropdown-menu li a:hover {
+    color: whitesmoke !important;
+    background: #bf5279 !important;
+}
+@media (max-width:767px) {
+    .serial-number ,.contact{
+        display: none;
+    }
+    
+}
+@media (max-width:400px) {
+    .serviceName{
+        display: none;
+    }
+    
+}
