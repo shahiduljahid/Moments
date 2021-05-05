@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../ServiceCard/ServiceCard";
-import cinematic from "../../../../photo/cinematic.png";
-import dynamic from "../../../../photo/dynamic.png";
-import photosession from "../../../../photo/photo.png";
-import digital from "../../../../photo/camera-strap.png";
-import classic from "../../../../photo/classic.png";
-import expression from "../../../../photo/expression.png";
+
 
 const Services = ({ showbtn }) => {
   const [serviceData, setServiceData] = useState([]);

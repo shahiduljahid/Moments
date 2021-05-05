@@ -1,5 +1,7 @@
+
 import React from "react";
 import "./HeaderMain.css";
+import { Link } from "react-router-dom";
 
 
 const HeaderMain = () => {
@@ -14,8 +16,10 @@ const HeaderMain = () => {
           We Are Your
         </h1>
         <h4 className="text-light ">Wedding photographer</h4>
+        <Link to={'/services'}><button style={{ fontWeight: "bold"}} className="btn mt-2 text-light btn-color">Get Appointment</button></Link>
 
-        <button style={{ fontWeight: "bold"}} className="btn mt-2 text-light btn-color">Get Appointment</button>
+        
+       
       </div>
     </div>
   );
