@@ -6,7 +6,7 @@ import lock from "../../../../photo/closed.svg";
 import { userContext } from "../../../../App";
 import Payment from "../Payment/Payment";
 
-const ServiceForm = ({ modalIsOpen, closeModal, name }) => {
+const ServiceForm = ({ modalIsOpen, closeModal, name ,description ,img }) => {
   const [loggedInUser] = useContext(userContext);
   
   const [infoSubmit, setInfoSubmit] = useState(false);
@@ -21,6 +21,8 @@ const ServiceForm = ({ modalIsOpen, closeModal, name }) => {
   } = useForm();
   const onSubmit = (data) => {
     data.service = name;
+    data.serviceImg = img;
+    data.serviceDes = description;
 
     data.date = new Date();
     setBookingInfo(data);
@@ -29,7 +31,7 @@ const ServiceForm = ({ modalIsOpen, closeModal, name }) => {
 
   const handlePayment = (paymentId) => {
     const data = {
-      user: sessionStorage.getItem("token") || loggedInUser,
+      user: sessionStorage.getItem("token") || loggedInUser.email,
       booking: bookingInfo,
       paymentId,
     };

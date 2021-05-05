@@ -50,17 +50,19 @@ const AddService = () => {
   } = useForm();
   const onSubmit = (data) => {
     if (data.title && data.description && imageUrl) {
-      const serviceData = { ...data, imageUrl: imageUrl };
+      const serviceData = { ...data, img: imageUrl };
       console.log(serviceData)
 
-      // const url = `https://murmuring-earth-21963.herokuapp.com/addBook`;
-      // fetch(url, {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(bookData),
-      // }).then((res) => {
-      //   console.log(res);
-      // });
+      const url = `http://localhost:4000/addService`;
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(serviceData),
+      }).then((res) => {
+        console.log(res);
+        if(res){}
+        alert('success')
+      });
 
       setImageUrl(null);
       const updatedBookInfo = {

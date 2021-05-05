@@ -50,6 +50,8 @@ const ServiceCard = ({ service ,showbtn }) => {
       <ServiceForm
         modalIsOpen={modalIsOpen}
         name={service.title}
+        description={service.description}
+        img={service.img}
         closeModal={closeModal}
       ></ServiceForm>
     </div>
