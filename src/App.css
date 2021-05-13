@@ -26,6 +26,15 @@
  
   
 }
+.carousel-inner{
+  margin-bottom: 50px;
+
+}
+.carousel-indicators{
+  background-color: tomato;
+  border-radius: 20px;
+}
+
 
 @media (max-width:991px) {
  .customModal{

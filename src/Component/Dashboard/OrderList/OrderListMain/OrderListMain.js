@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import React from "react";
 import "./OrderListMain.css";
 
@@ -52,6 +53,12 @@ const OrderListMain = ({ orderList }) => {
               </th>
             </tr>
           </thead>
+          {orderList.length === 0 && (
+              <div className="text-center">
+               loading...
+                
+              </div>
+            )}
           {orderList.map((apm, index) => {
             return (
               <tbody>

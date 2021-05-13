@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../ServiceCard/ServiceCard";
 
@@ -28,6 +29,16 @@ const Services = ({ showbtn }) => {
         </div>
         <div className="col-md-12">
           <div className="row justify-content-center">
+          {serviceData.length === 0 && (
+              <div className="text-center">
+                <CircularProgress disableShrink />
+                <CircularProgress disableShrink />
+              
+                <CircularProgress disableShrink />
+              </div>
+            )}
+
+
             {serviceData.map((service) => (
               <ServiceCard showbtn={showbtn} service={service}></ServiceCard>
             ))}

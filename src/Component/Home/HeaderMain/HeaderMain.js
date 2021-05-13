@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const HeaderMain = () => {
   return (
-    <div className="mb-5 mt-5 d-flex justify-content-center  pb-5 text-center align-items-center  headerMain-container ">
+    <div className="mb-5 mt-5 d-flex justify-content-center  pb-5 text-center align-items-center img-fluid  headerMain-container ">
       
       <div className=" rounded">
          

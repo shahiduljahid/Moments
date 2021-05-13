@@ -35,6 +35,11 @@ const Navbar = () => {
             </li>
             <li className="nav-item pe-5">
               <Link to={"/admin"} className="nav-link">
+                Order
+              </Link>
+            </li>
+            <li className="nav-item pe-5">
+              <Link to={"/admin"} className="nav-link">
                 Admin
               </Link>
             </li>
@@ -46,9 +51,7 @@ const Navbar = () => {
             <li className="nav-item pe-5">
               <Link className="nav-link navigation  ">Blogs</Link>
             </li>
-            <li className="nav-item pe-5">
-              <Link className="nav-link navigation">Pages</Link>
-            </li>
+           
             <li className="nav-item pe-5">
               <Link className="nav-link navigation ">Contact us</Link>
             </li>

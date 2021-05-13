@@ -38,7 +38,7 @@ const AddReview = () => {
         <div>
           <h4 className="text-color ms-3  mb-2 mt-3">Add Review</h4>
           <form
-            className="shadow form-control border-0 pt-4 pb-5 px-2 "
+            className="form-control border-0 pt-4 pb-5 px-2 "
             onSubmit={handleSubmit(onSubmit)}
           >
             <input
