@@ -1,21 +1,17 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
 
-import {  useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import firebase from "firebase/app";
 import "firebase/auth";
-
 
 import { userContext } from "../../App";
 import { firebaseConfig } from "./firebaseConfig";
 
-
-
+import google from "../../photo/search.png"
 
 const Login = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(userContext
-    
-  );
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
   const [user, setUser] = useState({
     isUser: false,
@@ -56,7 +52,7 @@ const Login = () => {
         };
         setUser(SignInUser);
         setLoggedInUser(SignInUser);
-        sessionStorage.setItem('token',SignInUser.email)
+        sessionStorage.setItem("token", SignInUser.email);
         history.replace(from.pathname);
       })
       .catch((error) => {
@@ -88,7 +84,7 @@ const Login = () => {
         .auth()
         .createUserWithEmailAndPassword(user.email, user.password)
         .then((res) => {
-          const {  email } = res.user;
+          const { email } = res.user;
 
           const SignInUser = {
             name: user.name,
@@ -114,7 +110,7 @@ const Login = () => {
         .signInWithEmailAndPassword(user.email, user.password)
         .then((res) => {
           console.log(res.user);
-          const {  email } = res.user;
+          const { email } = res.user;
 
           const SignInUser = {
             name: "user",
@@ -123,7 +119,7 @@ const Login = () => {
             success: true,
           };
           setLoggedInUser(SignInUser);
-          sessionStorage.setItem('token',SignInUser.email)
+          sessionStorage.setItem("token", SignInUser.email);
           history.replace(from);
         })
         .catch((error) => {
@@ -139,9 +135,10 @@ const Login = () => {
   const handleBlur = (event) => {
     let inputFieldValid = true;
     if (event.target.name === "email") {
-      inputFieldValid = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        event.target.value
-      );
+      inputFieldValid =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          event.target.value
+        );
     }
 
     if (event.target.name === "password") {
@@ -157,13 +154,14 @@ const Login = () => {
       setUser(newUserInfo);
     }
   };
- 
- 
 
   return (
     <div className="container login-container">
       <div className="row">
-        <div style={{height:'550px'}} className=" loginForm offset-md-1 shadow rounded mb-5 col-md-4 mt-5">
+        <div
+          style={{ height: "550px" }}
+          className=" loginForm offset-md-1 shadow rounded mb-5 col-md-4 mt-5"
+        >
           <h4 className="text-center text-secondary mt-3 mb-3">Login</h4>
           <form
             action=""
@@ -214,7 +212,7 @@ const Login = () => {
             <input
               className="btn mb-3  btn-color text-white text-bold text-bold button form-group form-control p-2"
               type="submit"
-              value={newUser ? "sign up" : "sign in"}
+              value={newUser ? "Sign up" : "Sign in"}
             />
 
             {!newUser && (
@@ -229,35 +227,30 @@ const Login = () => {
                 </button>
               </p>
             )}
-            { newUser && 
-            
-            
-            <p>
-            <span className="h6 me-2"> Already have an account?</span>
+            {newUser && (
+              <p>
+                <span className="h6 me-2"> Already have an account?</span>
 
-            <button
-              onClick={() => setNewUser(!newUser)}
-              className="btn mb-3  btn-success ml-2"
-            >
-              Log in
-            </button>
-          </p>
-
-            }
+                <button
+                  onClick={() => setNewUser(!newUser)}
+                  className="btn mb-3  btn-success ml-2"
+                >
+                  Log in
+                </button>
+              </p>
+            )}
 
             {newUser && (
               <button
                 onClick={() => handleGoogleSignIn()}
-                className="btn btn-color text-white text-bold py-2  button form-group form-control"
+                className="btn bg-light form-group form-control"
               >
-               <img className='text-center'  alt=""/> 
-               create account with Google
+              <img style={{height:'20px'}}  src={google} alt="" />
+                create account with Google
               </button>
             )}
-            
           </form>
-          
-          
+
           {user.success ? (
             <p className="text-success text-center">
               User created successfully
@@ -267,11 +260,8 @@ const Login = () => {
           )}
           <p className="text-danger text-center h4">{user.noMatch} </p>
         </div>
-        <div className=" offset-md-1  loginimage  mt-5 col-md-5">
-     
+        <div className=" offset-md-1  loginimage  mt-5 col-md-5"></div>
       </div>
-      </div>
-     
     </div>
   );
 };
