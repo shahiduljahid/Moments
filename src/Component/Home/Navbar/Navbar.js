@@ -1,11 +1,52 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { userContext } from "../../../App";
 import logo from "../../../photo/camera.png";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const Navbar = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const [isAdmin, setIsAdmin] = useState(false);
+  fetch("https://fierce-stream-67522.herokuapp.com/admin", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ admin: loggedInUser.email }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data) {
+        setIsAdmin(data);
+
+        sessionStorage.setItem("admin", loggedInUser.email);
+      }
+    });
+
+
+
+ 
+  const user = sessionStorage.getItem("token");
+  const admin =sessionStorage.getItem("admin");
+  const hangleSignOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then((res) => {
+        const userSignOut = {
+          name: "",
+          email: "",
+        };
+        setLoggedInUser(userSignOut);
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("admin");
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-light pt-5">
-      <div class="container-fluid">
+      <div className="container-fluid">
         <div className="align-items-center d-flex">
           <img
             style={{ height: "30px" }}
@@ -30,7 +71,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto text-center  mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto text-center d-flex align-items-center  mb-2 mb-lg-0">
             <li className="nav-item ">
               <Link
                 to={"/home"}
@@ -45,20 +86,33 @@ const Navbar = () => {
                 Order
               </Link>
             </li>
-            <li className="nav-item ">
-              <Link to={"/admin"} className="nav-link">Admin</Link>
-            </li>
+            { admin && (
+              <li className="nav-item ">
+                <Link to={"/admin"} className="nav-link">
+                  Admin
+                </Link>
+              </li>
+            )}
             <li className="nav-item ">
               <Link to={"/services"} className="nav-link">
                 Services
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link navigation  ">Blogs</Link>
-            </li>
-          
-            <li className="nav-item ">
               <Link className="nav-link navigation ">Contact us</Link>
+            </li>
+            <li className="nav-item ">
+              {loggedInUser.email || user ? (
+                <button onClick={hangleSignOut}  className="btn btn-color text-white text-bold">
+                  Log Out
+                </button>
+              ) : (
+                <Link to={"/login"} className="nav-link navigation  ">
+                  <button className="btn btn-color text-white text-bold">
+                    Log In
+                  </button>
+                </Link>
+              )}
             </li>
           </ul>
         </div>

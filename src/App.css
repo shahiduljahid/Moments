@@ -37,6 +37,10 @@
   background-color: tomato;
   border-radius: 20px;
 }
+.carousel-item {
+  
+  transition: transform .5s ease-in-out;
+}
 
 
 @media (max-width:991px) {

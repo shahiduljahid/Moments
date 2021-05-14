@@ -34,7 +34,7 @@ const Reviews = () => {
             <Carousel>
               {reviews.map((review) => (
                 <Carousel.Item>
-                  <ReviewCrad review={review}></ReviewCrad>
+                  <ReviewCrad key={review._id} review={review}></ReviewCrad>
                 </Carousel.Item>
               ))}
             </Carousel>

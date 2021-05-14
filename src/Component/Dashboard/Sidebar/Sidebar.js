@@ -17,6 +17,7 @@ import "firebase/auth";
 
 const Sidebar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
+  
 
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   if (firebase.apps.length === 0) {
