@@ -1,0 +1,124 @@
+[debug] [2021-05-14T20:41:58.932Z] ----------------------------------------------------------------------
+[debug] [2021-05-14T20:41:58.934Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jahid\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-05-14T20:41:58.934Z] CLI Version:   9.10.0
+[debug] [2021-05-14T20:41:58.934Z] Platform:      win32
+[debug] [2021-05-14T20:41:58.934Z] Node Version:  v14.15.4
+[debug] [2021-05-14T20:41:58.945Z] Time:          Sat May 15 2021 04:41:58 GMT+0800 (China Standard Time)
+[debug] [2021-05-14T20:41:58.945Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-14T20:41:58.955Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-14T20:41:58.956Z] > authorizing via signed-in user (sij12340000@gmail.com)
+[debug] [2021-05-14T20:41:58.956Z] [iam] checking project wedding-photographer-f7477 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-05-14T20:41:58.958Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-14T20:41:58.959Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-14T20:42:00.106Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Fri, 14 May 2021 20:42:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-14T20:42:00.119Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-photographer-f7477:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-05-14T20:42:10.952Z] [iam] error while checking permissions, command may fail: FirebaseError: Server Error. Client network socket disconnected before secure TLS connection was established
+[debug] [2021-05-14T20:42:10.953Z] > refreshing access token with scopes: []
+[debug] [2021-05-14T20:42:10.954Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-14T20:42:11.767Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Fri, 14 May 2021 20:42:11 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-14T20:42:11.776Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 [none]
+[debug] [2021-05-14T20:42:12.992Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 200
+[debug] [2021-05-14T20:42:12.992Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 {"projectId":"wedding-photographer-f7477","projectNumber":"97374979899","displayName":"wedding-photographer","name":"projects/wedding-photographer-f7477","resources":{"hostingSite":"wedding-photographer-f7477"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'wedding-photographer-f7477'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-05-14T20:42:13.004Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-14T20:42:13.004Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-14T20:42:13.805Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Fri, 14 May 2021 20:42:13 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-14T20:42:13.813Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/wedding-photographer-f7477/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-05-14T20:42:25.604Z] Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:607:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1544:19)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:467:12)
+    at endReadableNT (internal/streams/readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Server Error. Client network socket disconnected before secure TLS connection was established
+[debug] [2021-05-14T20:42:44.900Z] ----------------------------------------------------------------------
+[debug] [2021-05-14T20:42:44.902Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jahid\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-05-14T20:42:44.902Z] CLI Version:   9.10.0
+[debug] [2021-05-14T20:42:44.902Z] Platform:      win32
+[debug] [2021-05-14T20:42:44.902Z] Node Version:  v14.15.4
+[debug] [2021-05-14T20:42:44.903Z] Time:          Sat May 15 2021 04:42:44 GMT+0800 (China Standard Time)
+[debug] [2021-05-14T20:42:44.903Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-14T20:42:44.913Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-14T20:42:44.913Z] > authorizing via signed-in user (sij12340000@gmail.com)
+[debug] [2021-05-14T20:42:44.913Z] [iam] checking project wedding-photographer-f7477 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-05-14T20:42:44.915Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-photographer-f7477:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-05-14T20:42:55.440Z] [iam] error while checking permissions, command may fail: FirebaseError: Server Error. Client network socket disconnected before secure TLS connection was established
+[debug] [2021-05-14T20:42:55.442Z] > refreshing access token with scopes: []
+[debug] [2021-05-14T20:42:55.442Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-14T20:42:56.261Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Fri, 14 May 2021 20:42:56 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-14T20:42:56.272Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 [none]
+[debug] [2021-05-14T20:42:57.185Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 200
+[debug] [2021-05-14T20:42:57.185Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 {"projectId":"wedding-photographer-f7477","projectNumber":"97374979899","displayName":"wedding-photographer","name":"projects/wedding-photographer-f7477","resources":{"hostingSite":"wedding-photographer-f7477"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'wedding-photographer-f7477'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-05-14T20:42:57.192Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-14T20:42:57.192Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-14T20:42:57.986Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Fri, 14 May 2021 20:42:57 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-14T20:42:57.993Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/wedding-photographer-f7477/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-05-14T20:43:00.297Z] Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:607:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1544:19)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:467:12)
+    at endReadableNT (internal/streams/readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Server Error. Client network socket disconnected before secure TLS connection was established
+[debug] [2021-05-14T20:44:28.224Z] ----------------------------------------------------------------------
+[debug] [2021-05-14T20:44:28.227Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Jahid\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-05-14T20:44:28.228Z] CLI Version:   9.10.0
+[debug] [2021-05-14T20:44:28.228Z] Platform:      win32
+[debug] [2021-05-14T20:44:28.228Z] Node Version:  v14.15.4
+[debug] [2021-05-14T20:44:28.229Z] Time:          Sat May 15 2021 04:44:28 GMT+0800 (China Standard Time)
+[debug] [2021-05-14T20:44:28.229Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-14T20:44:28.244Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-14T20:44:28.244Z] > authorizing via signed-in user (sij12340000@gmail.com)
+[debug] [2021-05-14T20:44:28.244Z] [iam] checking project wedding-photographer-f7477 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-05-14T20:44:28.252Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/wedding-photographer-f7477:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-05-14T20:44:35.888Z] [iam] error while checking permissions, command may fail: FirebaseError: Server Error. Client network socket disconnected before secure TLS connection was established
+[debug] [2021-05-14T20:44:35.890Z] > refreshing access token with scopes: []
+[debug] [2021-05-14T20:44:35.890Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-14T20:44:36.698Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Fri, 14 May 2021 20:44:36 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-14T20:44:36.708Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 [none]
+[debug] [2021-05-14T20:44:37.625Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 200
+[debug] [2021-05-14T20:44:37.625Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wedding-photographer-f7477 {"projectId":"wedding-photographer-f7477","projectNumber":"97374979899","displayName":"wedding-photographer","name":"projects/wedding-photographer-f7477","resources":{"hostingSite":"wedding-photographer-f7477"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'wedding-photographer-f7477'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-05-14T20:44:37.630Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-14T20:44:37.630Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-14T20:44:38.433Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Fri, 14 May 2021 20:44:38 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-14T20:44:38.440Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/wedding-photographer-f7477/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-05-14T20:44:39.724Z] Error: Client network socket disconnected before secure TLS connection was established
+    at connResetException (internal/errors.js:607:14)
+    at TLSSocket.onConnectEnd (_tls_wrap.js:1544:19)
+    at TLSSocket.emit (events.js:327:22)
+    at TLSSocket.EventEmitter.emit (domain.js:467:12)
+    at endReadableNT (internal/streams/readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Server Error. Client network socket disconnected before secure TLS connection was established
