@@ -26,6 +26,9 @@
  
   
 }
+.border-bottom {
+  border-bottom: 1px solid #dee2e6!important;
+}
 .carousel-inner{
   margin-bottom: 50px;
 
