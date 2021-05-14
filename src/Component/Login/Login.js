@@ -199,9 +199,8 @@ const Login = () => {
             />
             {newUser && (
               <input 
-            
                 type="password"
-                className="form-group  pb-3 mb-3 form-control"
+                className="form-group border-0  pb-3 mb-3 form-control"
                 placeholder="re-write-password"
                 name="reWritePassword"
                 onBlur={handleBlur}
