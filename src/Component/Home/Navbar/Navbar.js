@@ -4,8 +4,13 @@ import { userContext } from "../../../App";
 import logo from "../../../photo/camera.png";
 import firebase from "firebase/app";
 import "firebase/auth";
+import { firebaseConfig } from "../../Login/firebaseConfig";
 
 const Navbar = () => {
+  if (firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const [isAdmin, setIsAdmin] = useState(false);
   fetch("https://fierce-stream-67522.herokuapp.com/admin", {
