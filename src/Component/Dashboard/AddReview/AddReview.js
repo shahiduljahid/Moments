@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddReview.css";
 import Sidebar from "../Sidebar/Sidebar";
 
 import { useForm } from "react-hook-form";
 
 const AddReview = () => {
+  const [success ,setSuccess] =useState( false);
+
+
   const {
     register,
     handleSubmit,
@@ -23,11 +26,13 @@ const AddReview = () => {
       console.log(res);
       if (res) {
       }
-      alert("success");
+      setSuccess(true);;
     });
   };
   const handleFocus = (e) => {
     e.target.value = "";
+    setSuccess(false);
+
   };
   return (
     <div className="row">
@@ -75,7 +80,7 @@ const AddReview = () => {
               {...register("description", { required: true })}
             ></textarea>
             {errors.description && <span>This field is required</span>}
-            <div className="col-md-3">
+            <div style={{margin:0,padding:0}} className="col-md-3">
               <input
                 onFocus={handleFocus}
                 type="number"
@@ -88,12 +93,19 @@ const AddReview = () => {
 
             <input
               value="ADD"
-              className=" btn btn-color text-light text-bold"
-              type="submit"
+              className="mb-2 btn btn-color text-light text-bold"
+              type="submit" 
             />
+
+{
+           success &&  <h4 className="text-center text-success">Thanks for the Review</h4>
+         }
           </form>
+       
         </div>
+       
       </div>
+      
     </div>
   );
 };

@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../../photo/camera.png";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light pt-5">
       <div class="container-fluid">
-        <div>
+        <div className="align-items-center d-flex">
+          <img
+            style={{ height: "30px" }}
+            src={logo}
+            alt="logo"
+            className="img-fluid me-1"
+          />
           <span style={{ fontWeight: "bold", fontSize: "20px" }} className="">
-            Photography
+            MOMENTS
           </span>
         </div>
 
@@ -24,7 +31,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto text-center  mb-2 mb-lg-0">
-            <li className="nav-item pe-5">
+            <li className="nav-item ">
               <Link
                 to={"/home"}
                 className="nav-link active"
@@ -33,26 +40,26 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li className="nav-item pe-5">
+            <li className="nav-item ">
               <Link to={"/admin"} className="nav-link">
                 Order
               </Link>
             </li>
-            <li className="nav-item pe-5">
-              <Link to={"/admin"} className="nav-link">
-                Admin
-              </Link>
+            <li className="nav-item ">
+              <Link to={"/admin"} className="nav-link"></Link>
             </li>
-            <li className="nav-item pe-5">
+            <li className="nav-item ">
               <Link to={"/services"} className="nav-link">
                 Services
               </Link>
             </li>
-            <li className="nav-item pe-5">
+            <li className="nav-item ">
               <Link className="nav-link navigation  ">Blogs</Link>
             </li>
-           
-            <li className="nav-item pe-5">
+            <li className="nav-item ">
+              <Link className="nav-link navigation">Pages</Link>
+            </li>
+            <li className="nav-item ">
               <Link className="nav-link navigation ">Contact us</Link>
             </li>
           </ul>
