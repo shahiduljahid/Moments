@@ -21,7 +21,7 @@ const Reviews = () => {
             Our Customer's <span className="text-color">Reviews</span>
           </h4>
         </div>
-        <div className="col-md-6 mt-5">
+        <div className="col-md-10 mt-5">
           <div className="row justify-content-center">
             {reviews.length === 0 && (
               <div className="text-center">

@@ -60,7 +60,7 @@ const Navbar = () => {
             className="img-fluid me-1"
           />
           <span style={{ fontWeight: "bold", fontSize: "20px" }} className="">
-            MOMENTS
+            Moments
           </span>
         </div>
 

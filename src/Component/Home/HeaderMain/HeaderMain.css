@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,400;1,500&display=swap");
 
 .headerMain-container {
-  height:1200px;
-  background-image: url(../../../photo/resized-image-Promo.jpeg);
+  height:600px;
+  background-image: url(../../../photo/cameraman.png);
+
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: 50% 50%;
   width: 100%;
 }
 
@@ -17,12 +20,12 @@
 }
 @media (max-width: 1500px) {
   .headerMain-container {
-    height: 900px;
+    height: 600px;
   }
 }
 @media (max-width: 1199px) {
   .headerMain-container {
-    height: 700px;
+    height: 600px;
   }
 }
 
