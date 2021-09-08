@@ -76,15 +76,18 @@ const ServiceForm = ({ modalIsOpen, closeModal, name ,description ,img }) => {
                 className="form-control mb-3 form-group"
                 placeholder="First name"
                 required
-                {...register("firstName")}
+                {...register("firstName" , { required: true })}
               />
+               {errors.firstName && <span>This field is required</span>}
 
               <input
                 className="form-control mb-3 form-group"
                 placeholder="Last name"
                 required
-                {...register("lastName")}
+                {...register("lastName" , { required: true })}
               />
+                 {errors.lastName && <span>This field is required</span>}
+              
 
               <input
                 className="form-control  mb-3 form-group"
@@ -92,15 +95,16 @@ const ServiceForm = ({ modalIsOpen, closeModal, name ,description ,img }) => {
                 {...register("phoneNumber", { required: true })}
               />
 
-              {errors.exampleRequired && <span>This field is required</span>}
+              {errors.phoneNumber && <span>This field is required</span>}
               <input
                 type="email"
                 className="form-control  mb-3 form-group"
                 name="email"
-                {...register("email")}
+                {...register("email" , { required: true })}
                 placeholder="email"
                 id=""
               />
+               {errors.email && <span>This field is required</span>}
 
               <label className="text-color mb-2 text-bold" htmlFor="">
                 Wedding Details:
@@ -108,19 +112,21 @@ const ServiceForm = ({ modalIsOpen, closeModal, name ,description ,img }) => {
               <input
                 type="text"
                 placeholder="Address"
-                {...register("address")}
+                {...register("address" , { required: true })}
                 className="form-control  mb-3 form-group"
                 name="address"
                 id=""
               />
+               {errors.address && <span>This field is required</span>}
               <input
                 type="Date"
                 placeholder="Wedding Date"
-                {...register("weddingDate")}
+                {...register("weddingDate" , { required: true })}
                 className="form-control  mb-3 form-group"
                 name="weddingDate"
                 id=""
               />
+               {errors.weddingDate && <span>This field is required</span>}
 
               <input
                 className="d-flex justify-content-center ms-auto mb-3 btn text-light text-bold font-weight-bold btn-color form-group"

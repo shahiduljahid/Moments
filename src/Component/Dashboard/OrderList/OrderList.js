@@ -9,7 +9,7 @@ const OrderList = () => {
         .then(res=>res.json())
         .then(data=>setOrderList(data))
     },[])
-    console.log(orderList)
+   
     return (
         <div className="row">
             <div className="col-md-3 col-xl-2">

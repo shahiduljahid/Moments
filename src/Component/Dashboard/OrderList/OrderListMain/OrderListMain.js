@@ -4,6 +4,7 @@ import "./OrderListMain.css";
 
 const OrderListMain = ({ orderList }) => {
   const handleDate = (date) => {
+    console.log(date)
     const newDate = new Date(date).getDate();
     const newMonth = new Date(date).getMonth();
     const newYear = new Date(date).getFullYear();
@@ -69,12 +70,12 @@ const OrderListMain = ({ orderList }) => {
                   >
                     {index + 1}
                   </td>
-                  <td
+                  {/* <td
                     style={{ fontWeight: "bold", color: "#0A0A0A" }}
                     className="text-weight-bold "
                   >
                     {handleDate(apm.booking.date)}
-                  </td>
+                  </td> */}
                   <td
                     style={{ fontWeight: "bold", color: "#0A0A0A" }}
                     className="text-weight-bold serviceName"
