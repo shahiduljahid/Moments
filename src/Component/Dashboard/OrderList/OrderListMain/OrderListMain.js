@@ -40,7 +40,10 @@ const OrderListMain = ({ orderList ,setOrderList }) => {
         `https://wedding-photographer-server-peach.vercel.app/appointment${id}`
       );
       if (res.data) {
-        setOrderList(res.data);
+            const deletedEle = res.data;
+        const newData = await orderList.filter((ele) => ele._id !== deletedEle._id);
+        setOrderList(newData);
+        
       }
     } catch (err) {
       console.log(err);
