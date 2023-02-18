@@ -8,7 +8,7 @@ import ReviewCrad from "../ReviewCard/ReviewCrad";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/reviews")
+    fetch("https://wedding-photographer-server-peach.vercel.app/review/")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const [isAdmin, setIsAdmin] = useState(false);
-  fetch("http://localhost:4000/admin", {
+  fetch("https://wedding-photographer-server-peach.vercel.app/admin", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ admin: loggedInUser.email }),

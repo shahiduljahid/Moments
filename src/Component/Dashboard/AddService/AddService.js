@@ -53,7 +53,7 @@ const AddService = () => {
       const serviceData = { ...data, img: imageUrl };
       console.log(serviceData)
 
-      const url = `http://localhost:4000/addService`;
+      const url = `https://wedding-photographer-server-peach.vercel.app/service/addService`;
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

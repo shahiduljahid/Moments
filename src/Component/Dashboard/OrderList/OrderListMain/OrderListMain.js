@@ -17,7 +17,7 @@ const OrderListMain = ({ orderList }) => {
   };
 
   const handleChange = (id, e) => {
-    fetch("http://localhost:4000/updateStatus", {
+    fetch("https://wedding-photographer-server-peach.vercel.app/service/updateStatus", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ bookingId: id, status: e.target.value }),
