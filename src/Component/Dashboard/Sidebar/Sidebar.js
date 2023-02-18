@@ -24,7 +24,7 @@ const Sidebar = () => {
     firebase.initializeApp(firebaseConfig);
   }
 
-  fetch("https://fierce-stream-67522.herokuapp.com/admin", {
+  fetch("https://wedding-photographer-server-peach.vercel.app/admin", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ admin: loggedInUser.email }),

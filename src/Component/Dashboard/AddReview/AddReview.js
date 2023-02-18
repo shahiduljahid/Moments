@@ -17,7 +17,7 @@ const AddReview = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    const url = `https://fierce-stream-67522.herokuapp.com/addReview`;
+    const url = `https://wedding-photographer-server-peach.vercel.app/addReview`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

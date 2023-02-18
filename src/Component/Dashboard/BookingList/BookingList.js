@@ -11,7 +11,7 @@ const BookingList = () => {
     console.log(getUser)
 
     useEffect(()=>{
-        fetch('https://fierce-stream-67522.herokuapp.com/userService',
+        fetch('https://wedding-photographer-server-peach.vercel.app/userService',
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },

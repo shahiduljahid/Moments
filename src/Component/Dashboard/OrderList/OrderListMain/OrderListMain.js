@@ -17,7 +17,7 @@ const OrderListMain = ({ orderList }) => {
   };
 
   const handleChange = (id, e) => {
-    fetch("https://fierce-stream-67522.herokuapp.com/updateStatus", {
+    fetch("https://wedding-photographer-server-peach.vercel.app/updateStatus", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ bookingId: id, status: e.target.value }),

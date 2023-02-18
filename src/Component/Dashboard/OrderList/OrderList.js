@@ -5,7 +5,7 @@ import OrderListMain from './OrderListMain/OrderListMain';
 const OrderList = () => {
     const[orderList ,setOrderList] = useState([])
     useEffect(()=>{
-        fetch('https://fierce-stream-67522.herokuapp.com/totalAppointments')
+        fetch('https://wedding-photographer-server-peach.vercel.app/totalAppointments')
         .then(res=>res.json())
         .then(data=>setOrderList(data))
     },[])

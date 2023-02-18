@@ -12,7 +12,7 @@ const AddAdmin = () => {
   } = useForm();
   const onSubmit = (data) => {
 
-    const url = `https://fierce-stream-67522.herokuapp.com/addAdmin`;
+    const url = `https://wedding-photographer-server-peach.vercel.app/addAdmin`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

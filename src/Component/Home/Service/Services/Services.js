@@ -6,7 +6,7 @@ import ServiceCard from "../ServiceCard/ServiceCard";
 const Services = ({ showbtn }) => {
   const [serviceData, setServiceData] = useState([]);
   useEffect(() => {
-    fetch("https://fierce-stream-67522.herokuapp.com/services")
+    fetch("https://wedding-photographer-server-peach.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServiceData(data));
   }, []);

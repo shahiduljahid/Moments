@@ -53,7 +53,7 @@ const AddService = () => {
       const serviceData = { ...data, img: imageUrl };
       console.log(serviceData)
 
-      const url = `https://fierce-stream-67522.herokuapp.com/addService`;
+      const url = `https://wedding-photographer-server-peach.vercel.app/addService`;
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
