@@ -24,7 +24,7 @@ const Sidebar = () => {
     firebase.initializeApp(firebaseConfig);
   }
 
-  fetch("https://wedding-photographer-server-peach.vercel.app/admin", {
+  fetch("http://localhost:4000/admin", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ admin: loggedInUser.email }),
