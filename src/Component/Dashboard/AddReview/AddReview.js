@@ -36,7 +36,7 @@ const AddReview = () => {
   };
   return (
     <div className="row">
-      <div className="col-md-3 col-xl-2">
+      <div className="col-md-3 col-xl-2 sidebar">
         <Sidebar></Sidebar>
       </div>
       <div className="col-md-5">

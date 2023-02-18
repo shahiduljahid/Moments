@@ -7,8 +7,8 @@ import "firebase/auth";
 
 import { userContext } from "../../App";
 import { firebaseConfig } from "./firebaseConfig";
-
-import google from "../../photo/search.png"
+import { useForm } from "react-hook-form";
+import google from "../../photo/search.png";
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
@@ -35,6 +35,77 @@ const Login = () => {
 
   let { from } = location.state || { from: { pathname: "/" } };
   fromArray.push(from);
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    if (newUser && data.password !== data.reWritePassword) {
+      const newUserInfo = { ...user };
+      newUserInfo.noMatch = "password not matched";
+      setUser(newUserInfo);
+    }
+
+    if (
+      data.name &&
+      data.email &&
+      data.password &&
+      data.password === data.reWritePassword
+    ) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(data.email, data.password)
+        .then((res) => {
+          const { email } = res.user;
+
+          const SignInUser = {
+            name: user.name,
+            email: email,
+            isUser: true,
+            success: true,
+          };
+          setLoggedInUser(SignInUser);
+          sessionStorage.setItem("token", SignInUser.email);
+          history.replace(from);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          const userInfo = { ...user, success: false };
+          userInfo.error = errorMessage;
+          setUser(userInfo);
+        });
+    }
+
+    if (!newUser && data.email && data.password) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(data.email, data.password)
+        .then((res) => {
+          console.log(res.user);
+          const { email } = res.user;
+
+          const SignInUser = {
+            name: "user",
+            email: email,
+            isUser: true,
+            success: true,
+          };
+          setLoggedInUser(SignInUser);
+          sessionStorage.setItem("token", SignInUser.email);
+          history.replace(from);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          const userInfo = { ...user, success: false };
+          userInfo.error = errorMessage;
+          setUser(userInfo);
+        });
+    }
+  };
 
   const handleGoogleSignIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -67,71 +138,7 @@ const Login = () => {
         setLoggedInUser(newUserInfo);
       });
   };
-  const handleSubmit = (event) => {
-    if (newUser && user.password !== user.reWritePassword) {
-      const newUserInfo = { ...user };
-      newUserInfo.noMatch = "password not matched";
-      setUser(newUserInfo);
-    }
 
-    if (
-      user.name &&
-      user.email &&
-      user.password &&
-      user.password === user.reWritePassword
-    ) {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(user.email, user.password)
-        .then((res) => {
-          const { email } = res.user;
-
-          const SignInUser = {
-            name: user.name,
-            email: email,
-            isUser: true,
-            success: true,
-          };
-          setLoggedInUser(SignInUser);
-          sessionStorage.setItem('token',SignInUser.email)
-          history.replace(from);
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          const userInfo = { ...user, success: false };
-          userInfo.error = errorMessage;
-          setUser(userInfo);
-        });
-    }
-
-    if (!newUser && user.email && user.password) {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(user.email, user.password)
-        .then((res) => {
-          console.log(res.user);
-          const { email } = res.user;
-
-          const SignInUser = {
-            name: "user",
-            email: email,
-            isUser: true,
-            success: true,
-          };
-          setLoggedInUser(SignInUser);
-          sessionStorage.setItem("token", SignInUser.email);
-          history.replace(from);
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          const userInfo = { ...user, success: false };
-          userInfo.error = errorMessage;
-          setUser(userInfo);
-        });
-    }
-
-    event.preventDefault();
-  };
   const handleBlur = (event) => {
     let inputFieldValid = true;
     if (event.target.name === "email") {
@@ -157,55 +164,75 @@ const Login = () => {
 
   return (
     <div className="container login-container">
-      <div className="row">
+      <div style={{ justifyContent: "left" }} className="row">
         <div
-          style={{ height: "550px" }}
-          className=" loginForm offset-md-1 shadow rounded mb-5 col-md-4 mt-5"
+          style={{ height: "550px", padding: "0px 50px" }}
+          className=" loginForm offset-md-1 shadow rounded mb-5 col-xl-4 col-md-5 mt-5"
         >
-          <h4 className="text-center text-secondary mt-3 mb-3">Login</h4>
+          <h4 className="text-center text-secondary mt-3 mb-3">
+            LOGIN / REGISTRATION FORM
+          </h4>
+
+          <button
+            onClick={() => handleGoogleSignIn()}
+            style={{
+              width: "100%",
+              padding: "10px",
+              background: "transparent",
+            }}
+          >
+            <img style={{ height: "20px" }} src={google} alt="" />
+            Sign in with Google
+          </button>
+
           <form
+            style={{ padding: "0", marginTop: "10px" }}
             action=""
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             className="text-center border-0 signIn-form"
           >
             {newUser && (
               <input
-                className="form-group border-0 border-bottom pb-3 mb-3 form-control"
+                className="form-group border-2 border-bottom pb-3 mb-3 form-control"
                 type="text"
                 name="name"
                 placeholder="Your name"
-                id=""
+                id="name"
                 onBlur={handleBlur}
                 required
+                {...register("name", { required: true })}
               />
             )}
             <input
               type="email"
-              className="form-group border-0 border-bottom pb-3 mb-3 form-control"
+              className="form-group border-2 border-bottom pb-3 mb-3 form-control"
               name="email"
               placeholder="Your email"
-              id=""
+              id="email"
               onBlur={handleBlur}
               required
+              {...register("email", { required: true })}
             />
             <input
               type="password"
-              className="form-group border-0 border-bottom pb-3 mb-3 form-control"
+              className="form-group border-2 border-bottom pb-3 mb-3 form-control"
               placeholder="type your password"
               name="password"
               onBlur={handleBlur}
-              id=""
+              id="password"
               required
+              {...register("password", { required: true })}
             />
             {newUser && (
-              <input 
+              <input
                 type="password"
-                className="form-group border-0  pb-3 mb-3 form-control"
+                className="form-group border-2  pb-3 mb-3 form-control"
                 placeholder="re-write-password"
                 name="reWritePassword"
                 onBlur={handleBlur}
-                id=""
+                id="reWritePassword"
                 required
+                {...register("reWritePassword", { required: true })}
               />
             )}
 
@@ -217,37 +244,35 @@ const Login = () => {
 
             {!newUser && (
               <p>
-                <span className="h6 me-2"> new user?</span>
+                <span className="h6 me-2"> Don't have Account ?</span>
 
-                <button
+                <span
+                  style={{
+                    color: "green",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
                   onClick={() => setNewUser(!newUser)}
-                  className="btn mb-3 text-bold text-white text-bold  btn-color ml-2"
                 >
                   create account
-                </button>
+                </span>
               </p>
             )}
             {newUser && (
               <p>
                 <span className="h6 me-2"> Already have an account?</span>
 
-                <button
+                <span
+                  style={{
+                    color: "green",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
                   onClick={() => setNewUser(!newUser)}
-                  className="btn mb-3  btn-success ml-2"
                 >
                   Log in
-                </button>
+                </span>
               </p>
-            )}
-
-            {newUser && (
-              <button
-                onClick={() => handleGoogleSignIn()}
-                className="btn bg-light form-group form-control"
-              >
-              <img style={{height:'20px'}}  src={google} alt="" />
-                create account with Google
-              </button>
             )}
           </form>
 
@@ -260,7 +285,6 @@ const Login = () => {
           )}
           <p className="text-danger text-center h4">{user.noMatch} </p>
         </div>
-        <div className=" offset-md-1  loginimage  mt-5 col-md-5"></div>
       </div>
     </div>
   );

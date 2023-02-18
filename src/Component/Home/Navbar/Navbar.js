@@ -27,11 +27,8 @@ const Navbar = () => {
       }
     });
 
-
-
- 
   const user = sessionStorage.getItem("token");
-  const admin =sessionStorage.getItem("admin");
+  const admin = sessionStorage.getItem("admin");
   const hangleSignOut = () => {
     firebase
       .auth()
@@ -48,7 +45,7 @@ const Navbar = () => {
       });
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("admin");
-  }
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light pt-5">
       <div className="container-fluid">
@@ -86,29 +83,34 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li className="nav-item ">
-              <Link to={"/admin"} className="nav-link">
-                Order
-              </Link>
-            </li>
-            { admin && (
+            {admin ? (
               <li className="nav-item ">
-                <Link to={"/admin"} className="nav-link">
+                <Link to={"/orderList"} className="nav-link">
                   Admin
                 </Link>
               </li>
-            )}
-            <li className="nav-item ">
-              <Link to={"/services"} className="nav-link">
-                Services
+            ) : (
+              <><li className="nav-item ">
+              <Link to={"/bookingList"} className="nav-link">
+                Order
               </Link>
             </li>
-            <li className="nav-item ">
-              <Link className="nav-link navigation ">Contact us</Link>
-            </li>
+             <li className="nav-item ">
+             <Link to={"/services"} className="nav-link">
+               Services
+             </Link>
+           </li>
+         </>
+            )}
+
+      
+           
             <li className="nav-item ">
               {loggedInUser.email || user ? (
-                <button onClick={hangleSignOut}  className="btn btn-color text-white text-bold">
+                <button
+                  onClick={hangleSignOut}
+                  className="btn btn-color text-white text-bold"
+                >
                   Log Out
                 </button>
               ) : (

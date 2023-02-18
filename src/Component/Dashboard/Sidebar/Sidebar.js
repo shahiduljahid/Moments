@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindows } from "@fortawesome/free-brands-svg-icons";
 import {
   faCommentAlt,
+  faEdit,
+  faHome,
   faPlus,
   faShoppingCart,
   faSignOutAlt,
@@ -57,7 +59,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="d-flex justify-content-center sidebar ">
+    <div className="d-flex justify-content-center">
       <ul className="navbar-nav mt-5  ">
         {isAdmin || getAdmin ? (
           <div>
@@ -83,6 +85,18 @@ const Sidebar = () => {
                     icon={faPlus}
                   />{" "}
                   Add Service
+                </span>
+              </Link>
+            </li>
+            <li className="nav-item nav-link mb-3 ">
+              <Link to={"/manageService"} style={{ textDecoration: "none" }}>
+                <span className=" text-light  book-btn text-bold">
+                  <FontAwesomeIcon
+                    style={{ fontSize: "20px" }}
+                    className="me-3"
+                    icon={faEdit}
+                  />{" "}
+                  Manage Services
                 </span>
               </Link>
             </li>
@@ -141,7 +155,7 @@ const Sidebar = () => {
         )}
 
         <li onClick={hangleSignOut} className="nav-item nav-link mb-3  ">
-          <Link to={"/review"} style={{ textDecoration: "none" }}>
+          <Link to={"/home"} style={{ textDecoration: "none" }}>
             <span className=" text-light  book-btn text-bold">
               <FontAwesomeIcon
                 style={{ fontSize: "20px" }}
@@ -149,6 +163,18 @@ const Sidebar = () => {
                 icon={faSignOutAlt}
               />
               Log out
+            </span>
+          </Link>
+        </li>
+        <li className="nav-item nav-link mb-3  ">
+          <Link to={"/home"} style={{ textDecoration: "none" }}>
+            <span className=" text-light  book-btn text-bold">
+              <FontAwesomeIcon
+                style={{ fontSize: "20px" }}
+                className="me-3"
+                icon={faHome}
+              />
+              Home
             </span>
           </Link>
         </li>

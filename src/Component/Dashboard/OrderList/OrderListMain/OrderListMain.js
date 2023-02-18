@@ -1,8 +1,11 @@
 import { CircularProgress } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import "./OrderListMain.css";
+import axios from "axios";
+import OrderList from "./../OrderList";
 
-const OrderListMain = ({ orderList }) => {
+const OrderListMain = ({ orderList ,setOrderList }) => {
+
   const handleDate = (date) => {
     console.log(date);
     const newDate = new Date(date).getDate();
@@ -31,6 +34,18 @@ const OrderListMain = ({ orderList }) => {
         }
       });
   };
+  const handleDeleteOrder = async (id) => {
+    try {
+      const res = await axios.delete(
+        `https://wedding-photographer-server-peach.vercel.app/appointment${id}`
+      );
+      if (res.data) {
+        setOrderList(res.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="row">
       <div className="px-5">
@@ -40,7 +55,7 @@ const OrderListMain = ({ orderList }) => {
               <th className="text-secondary serial-number " scope="col">
                 sr.no
               </th>
-              <th className="text-secondary" scope="col">
+              <th className="text-secondary serial-number" scope="col">
                 Date
               </th>
               <th className="text-secondary serviceName" scope="col">
@@ -53,29 +68,30 @@ const OrderListMain = ({ orderList }) => {
                 contact
               </th>
               <th className="text-secondary" scope="col">
+                Status
+              </th>
+              <th className="text-secondary" scope="col">
                 Action
               </th>
             </tr>
-          </thead>
-          {orderList.length === 0 && (
-            <div className="text-center">loading...</div>
-          )}
+          </thead><tbody>
+          {orderList.length === 0 && <div className="text-center">loading...</div>}
           {orderList.map((apm, index) => {
             return (
-              <tbody>
-                <tr>
+              
+                <tr key={apm._id}>
                   <td
                     style={{ fontWeight: "bold", color: "#0A0A0A" }}
                     className="text-weight-bold serial-number"
                   >
                     {index + 1}
                   </td>
-                  {/* <td
+                  <td
                     style={{ fontWeight: "bold", color: "#0A0A0A" }}
-                    className="text-weight-bold "
+                    className="text-weight-bold serial-number "
                   >
                     {handleDate(apm.booking.date)}
-                  </td> */}
+                  </td>
                   <td
                     style={{ fontWeight: "bold", color: "#0A0A0A" }}
                     className="text-weight-bold serviceName"
@@ -107,18 +123,22 @@ const OrderListMain = ({ orderList }) => {
                           id="status"
                         >
                           {apm.status && (
-                            <option className=" text-bold bg-success ">
-                              {apm.status}
-                            </option>
+                            <option className=" text-bold">{apm.status}</option>
                           )}
                           {(apm.status === "Done" || !apm.status) && (
-                            <option className=" text-bold bg-danger  ">
+                            <option
+                              style={{ padding: "5px", color: "black" }}
+                              className=" text-bold"
+                            >
                               pending
                             </option>
                           )}
 
                           {(apm.status === "pending" || !apm.status) && (
-                            <option className=" text-bold bg-success ">
+                            <option
+                              style={{ padding: "5px", color: "black" }}
+                              className=" text-bold"
+                            >
                               Done
                             </option>
                           )}
@@ -126,10 +146,21 @@ const OrderListMain = ({ orderList }) => {
                       </div>
                     </form>
                   </td>
+                  <td
+                    style={{ fontWeight: "bold", color: "#0A0A0A" }}
+                    className="text-weight-bold"
+                  >
+                    <button
+                      onClick={() => handleDeleteOrder(apm._id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
-              </tbody>
+              
             );
-          })}
+          })}</tbody>
         </table>
       </div>
     </div>

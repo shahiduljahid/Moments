@@ -23,7 +23,7 @@ const AddService = () => {
     setUpload(true);
     const imageData = new FormData();
     imageData.set("key", "f16e0919dbce32c8326397f504a1e7b1");
- 
+
     imageData.append("image", event.target.files[0]);
     axios
       .post(
@@ -51,7 +51,7 @@ const AddService = () => {
   const onSubmit = (data) => {
     if (data.title && data.description && imageUrl) {
       const serviceData = { ...data, img: imageUrl };
-      console.log(serviceData)
+      console.log(serviceData);
 
       const url = `https://wedding-photographer-server-peach.vercel.app/service/addService`;
       fetch(url, {
@@ -60,8 +60,9 @@ const AddService = () => {
         body: JSON.stringify(serviceData),
       }).then((res) => {
         console.log(res);
-        if(res){}
-        alert('success')
+        if (res) {
+        }
+        alert("success");
       });
 
       setImageUrl(null);
@@ -91,7 +92,7 @@ const AddService = () => {
   };
   return (
     <div className="row">
-      <div className="col-md-3 col-xl-2">
+      <div className="col-md-3 col-xl-2 sidebar">
         <Sidebar></Sidebar>
       </div>
       <div className="col-md-8">
@@ -119,41 +120,41 @@ const AddService = () => {
                 ></textarea>
               </div>
               <div className="col-md-6">
-                  <form action="">
+                <form action="">
                   <label className="mb-2 text-bold text-color">Add photo</label>
-                <br />
-                <label htmlFor="fileBtn" className="uploadBtn">
-                  {imageUrl ? (
-                    <p className="text-success">
-                      {" "}
-                      <FontAwesomeIcon
-                        className="mr-2"
-                        icon={faCloudUploadAlt}
-                      />
-                      uploaded
-                    </p >
-                  ) : (
-                    <p className="text-light">
-                      {" "}
-                      <FontAwesomeIcon
-                        className="mr-2"
-                        icon={faCloudUploadAlt}
-                      />
-                      Upload Photo
-                    </p>
-                  )}
-                </label>
-                <input
-                  onChange={handleFile}
-                  className="from-group mb-2 "
-                  type="file"
-                  name="imageFile"
-                  id="fileBtn"
-                  required
-                  hidden
-                />
-                  </form>
-               
+                  <br />
+                  <label htmlFor="fileBtn" className="uploadBtn">
+                    {imageUrl ? (
+                      <p className="text-success">
+                        {" "}
+                        <FontAwesomeIcon
+                          className="mr-2"
+                          icon={faCloudUploadAlt}
+                        />
+                        uploaded
+                      </p>
+                    ) : (
+                      <p className="text-light">
+                        {" "}
+                        <FontAwesomeIcon
+                          className="mr-2"
+                          icon={faCloudUploadAlt}
+                        />
+                        Upload Photo
+                      </p>
+                    )}
+                  </label>
+                  <input
+                    onChange={handleFile}
+                    className="from-group mb-2 "
+                    type="file"
+                    name="imageFile"
+                    id="fileBtn"
+                    required
+                    hidden
+                  />
+                </form>
+
                 {upload && (
                   <p className="h4">
                     <CircularProgress />
@@ -175,16 +176,17 @@ const AddService = () => {
               type="submit"
             />
           </form>
-          <div className="col-xl-12 text-center alert">{service.failed}</div>
+          {service.failed && (
+            <div className="col-xl-12 text-center pb-5 alert">{service.failed}</div>
+          )}
           {service.success && (
-                  <div
-                    style={{ color: "green" }}
-                    className="col-xl-12 text-center h5"
-                  >
-                    <p>service added successfully</p>
-                  </div>
-                )}
-
+            <div
+              style={{ color: "green",textTransform:'capitalize' }}
+              className="col-xl-12 text-center"
+            >
+              <p className="col-xl-12 text-center pb-5  h5">service added successfully</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
