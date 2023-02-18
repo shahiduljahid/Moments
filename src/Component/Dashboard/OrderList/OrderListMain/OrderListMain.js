@@ -4,7 +4,7 @@ import "./OrderListMain.css";
 
 const OrderListMain = ({ orderList }) => {
   const handleDate = (date) => {
-    console.log(date)
+    console.log(date);
     const newDate = new Date(date).getDate();
     const newMonth = new Date(date).getMonth();
     const newYear = new Date(date).getFullYear();
@@ -17,11 +17,14 @@ const OrderListMain = ({ orderList }) => {
   };
 
   const handleChange = (id, e) => {
-    fetch("https://wedding-photographer-server-peach.vercel.app/service/updateStatus", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ bookingId: id, status: e.target.value }),
-    })
+    fetch(
+      "https://wedding-photographer-server-peach.vercel.app/appointment/updateStatus",
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bookingId: id, status: e.target.value }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -55,11 +58,8 @@ const OrderListMain = ({ orderList }) => {
             </tr>
           </thead>
           {orderList.length === 0 && (
-              <div className="text-center">
-               loading...
-                
-              </div>
-            )}
+            <div className="text-center">loading...</div>
+          )}
           {orderList.map((apm, index) => {
             return (
               <tbody>
