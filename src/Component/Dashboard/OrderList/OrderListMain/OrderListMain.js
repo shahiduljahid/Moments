@@ -37,7 +37,7 @@ const OrderListMain = ({ orderList ,setOrderList }) => {
   const handleDeleteOrder = async (id) => {
     try {
       const res = await axios.delete(
-        `https://wedding-photographer-server-peach.vercel.app/appointment${id}`
+        `https://wedding-photographer-server-peach.vercel.app/appointment/${id}`
       );
       if (res.data) {
             const deletedEle = res.data;
