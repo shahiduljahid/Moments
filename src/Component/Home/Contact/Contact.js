@@ -13,9 +13,7 @@ const Contact = () => {
           <h1 className="text-light  mt-3 ">
           DO YOU WANT YOUR <br/> WEDDING TO BE <br/> REMEMBERED?
           </h1>
-         
-  
-          <button style={{ fontWeight: "bold"}} className="btn mt-2 text-light btn-color">Send Message</button>
+
         </div>
       </div>
     );

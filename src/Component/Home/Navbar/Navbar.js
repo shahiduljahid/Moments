@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../../../App";
 import logo from "../../../photo/camera.png";
@@ -13,22 +13,9 @@ const Navbar = () => {
 
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const [isAdmin, setIsAdmin] = useState(false);
-  fetch("https://wedding-photographer-server-peach.vercel.app/admin", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ admin: loggedInUser.email }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data) {
-        setIsAdmin(data);
-
-        sessionStorage.setItem("admin", loggedInUser.email);
-      }
-    });
 
   const user = sessionStorage.getItem("token");
-  const admin = sessionStorage.getItem("admin");
+  const admin = sessionStorage.getItem("admin") || isAdmin;
   const hangleSignOut = () => {
     firebase
       .auth()
@@ -45,7 +32,23 @@ const Navbar = () => {
       });
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("admin");
+    setIsAdmin(false)
   };
+  useEffect(() => {
+    fetch("https://wedding-photographer-server-peach.vercel.app/admin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ admin: loggedInUser.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setIsAdmin(data);
+
+          sessionStorage.setItem("admin", loggedInUser.email);
+        }
+      });
+  }, [loggedInUser]);
   return (
     <nav className="navbar navbar-expand-lg navbar-light pt-5">
       <div className="container-fluid">
@@ -90,21 +93,20 @@ const Navbar = () => {
                 </Link>
               </li>
             ) : (
-              <><li className="nav-item ">
-              <Link to={"/bookingList"} className="nav-link">
-                Order
-              </Link>
-            </li>
-             <li className="nav-item ">
-             <Link to={"/services"} className="nav-link">
-               Services
-             </Link>
-           </li>
-         </>
+              <>
+                <li className="nav-item ">
+                  <Link to={"/bookingList"} className="nav-link">
+                    Order
+                  </Link>
+                </li>
+                <li className="nav-item ">
+                  <Link to={"/services"} className="nav-link">
+                    Services
+                  </Link>
+                </li>
+              </>
             )}
 
-      
-           
             <li className="nav-item ">
               {loggedInUser.email || user ? (
                 <button

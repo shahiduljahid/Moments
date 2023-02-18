@@ -78,7 +78,7 @@ const SplitCard = ({handlePayment}) => {
     <form   className="ml-5 form-control" onSubmit={handleSubmit}>
         <h6 className="text-color text-bold text-center">Pay with Your Card</h6>
       <label >
-        Card number
+        {`Card number(4242 4242 4242 4242)`}
         <CardNumberElement
       
           options={options}
@@ -96,6 +96,7 @@ const SplitCard = ({handlePayment}) => {
           }}
         />
       </label>
+    
       <br/>
       <label>
         Expiration date
