@@ -103,6 +103,6 @@ As an admin, you can manage services, view orders, and add new administrators.
 <li><b>MongoDB </b></li>
 <li><b>Mongoose </b></li>
 <li><b> JSON Web Tokens</b></li>
-<li><b>Heroku Hosting </b></li>
+<li><b>Vercel Hosting </b></li>
 </ul>
  
