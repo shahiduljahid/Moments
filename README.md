@@ -45,7 +45,6 @@ npm install
 ```bash
 PORT=5000
 DB_CONNECTION=<your MongoDB connection string>
-JWT_SECRET=<a secret string for JWT token>
 ```
 
 ### Create a .env.local file in the client directory and add the following environment variables:
@@ -53,11 +52,6 @@ JWT_SECRET=<a secret string for JWT token>
 ```bash
 REACT_APP_API_BASE_URL=http://localhost:5000
 REACT_APP_FIREBASE_API_KEY=<your Firebase API key>
-REACT_APP_FIREBASE_AUTH_DOMAIN=<your Firebase auth domain>
-REACT_APP_FIREBASE_PROJECT_ID=<your Firebase project ID>
-REACT_APP_FIREBASE_STORAGE_BUCKET=<your Firebase storage bucket>
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=<your Firebase messaging sender ID>
-REACT_APP_FIREBASE_APP_ID=<your Firebase app ID>
 ```
 
 ### Start the server and client by running the following commands in the respective directories:
