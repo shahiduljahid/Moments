@@ -1,8 +1,8 @@
 export const   firebaseConfig = {
-  apiKey: "AIzaSyBPhCa5x7Xok4BECDdB-Ldrbkcf3eU-dcU",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "your--moments.firebaseapp.com",
   projectId: "your--moments",
   storageBucket: "your--moments.appspot.com",
   messagingSenderId: "436315347442",
-  appId: "1:436315347442:web:7248e988955133eb28336b"
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };

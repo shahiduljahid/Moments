@@ -17,7 +17,7 @@ const AddReview = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    const url = `https://wedding-photographer-server-peach.vercel.app/review/addReview`;
+    const url = `${process.env.REACT_APP_API_BASE_URL}/review/addReview`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

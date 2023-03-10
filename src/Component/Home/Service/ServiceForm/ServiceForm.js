@@ -37,7 +37,7 @@ const ServiceForm = ({ modalIsOpen, closeModal, name, description, img }) => {
     };
     console.log(data);
 
-    const url = `https://wedding-photographer-server-peach.vercel.app/appointment/addappointment`;
+    const url = `${process.env.REACT_APP_API_BASE_URL}/appointment/addappointment`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

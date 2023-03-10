@@ -12,7 +12,7 @@ const AddAdmin = () => {
   } = useForm();
   const onSubmit = (data) => {
 
-    const url = `https://wedding-photographer-server-peach.vercel.app/admin/addAdmin`;
+    const url = `${process.env.REACT_APP_API_BASE_URL}/admin/addAdmin`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

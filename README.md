@@ -44,7 +44,7 @@ npm install
 
 ```bash
 PORT=5000
-DB_CONNECTION=<your MongoDB connection string>
+DB_URI=<your MongoDB connection string>
 ```
 
 ### Create a .env.local file in the client directory and add the following environment variables:
@@ -52,6 +52,7 @@ DB_CONNECTION=<your MongoDB connection string>
 ```bash
 REACT_APP_API_BASE_URL=http://localhost:5000
 REACT_APP_FIREBASE_API_KEY=<your Firebase API key>
+REACT_APP_FIREBASE_APP_ID=<your Firebase API ID>
 ```
 
 ### Start the server and client by running the following commands in the respective directories:

@@ -53,7 +53,7 @@ const AddService = () => {
       const serviceData = { ...data, img: imageUrl };
       console.log(serviceData);
 
-      const url = `https://wedding-photographer-server-peach.vercel.app/service/addService`;
+      const url = `${process.env.REACT_APP_API_BASE_URL}/service/addService`;
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

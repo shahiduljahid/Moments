@@ -11,7 +11,7 @@ const BookingList = () => {
     console.log(getUser)
 
     useEffect(()=>{
-        fetch('https://wedding-photographer-server-peach.vercel.app/appointment/userService',
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/appointment/userService`,
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },

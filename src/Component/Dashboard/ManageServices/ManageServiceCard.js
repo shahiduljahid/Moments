@@ -5,7 +5,7 @@ const ManageServiceCard = ({ service, setServiceData ,serviceData}) => {
   const handleDeleteService = async (id) => {
     try {
       const res = await axios.delete(
-        `https://wedding-photographer-server-peach.vercel.app/service/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/service/${id}`
       );
       if (res.data) {
         const deletedEle = res.data;

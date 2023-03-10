@@ -5,7 +5,7 @@ import OrderListMain from "./OrderListMain/OrderListMain";
 const OrderList = () => {
   const [orderList, setOrderList] = useState([]);
   useEffect(() => {
-    fetch("https://wedding-photographer-server-peach.vercel.app/appointment")
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/appointment`)
       .then((res) => res.json())
       .then((data) => setOrderList(data));
   }, []);

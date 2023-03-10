@@ -6,7 +6,7 @@ import ManageServiceCard from "./ManageServiceCard";
 const ManageService = ({}) => {
   const [serviceData, setServiceData] = useState([]);
   useEffect(() => {
-    fetch("https://wedding-photographer-server-peach.vercel.app/service/")
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/service/`)
       .then((res) => res.json())
       .then((data) => setServiceData(data));
   }, []);

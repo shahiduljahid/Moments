@@ -21,7 +21,7 @@ const OrderListMain = ({ orderList ,setOrderList }) => {
 
   const handleChange = (id, e) => {
     fetch(
-      "https://wedding-photographer-server-peach.vercel.app/appointment/updateStatus",
+      `${process.env.REACT_APP_API_BASE_URL}/appointment/updateStatus`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -37,7 +37,7 @@ const OrderListMain = ({ orderList ,setOrderList }) => {
   const handleDeleteOrder = async (id) => {
     try {
       const res = await axios.delete(
-        `https://wedding-photographer-server-peach.vercel.app/appointment/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/appointment/${id}`
       );
       if (res.data) {
             const deletedEle = res.data;
